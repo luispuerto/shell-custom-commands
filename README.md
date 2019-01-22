@@ -4,5 +4,6 @@ This is a small folder I want to use to host some of my custom made commands and
 
 ## Commands
 
-- brew-up: to 
+- brew-up: to update Homebrew. 
+- 
 
