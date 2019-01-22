@@ -5,9 +5,13 @@ This is a small folder I want to use to host some of my custom made commands and
 ## Commands
 
 - brew-up: to update Homebrew. 
-- create-command: this copy the command into the `/usr/local/bin`
-- qgis-up: update qgis using homebrew 
-- r-up: update r packages using 
+- create-command: this copy the command into the `/usr/local/bin`. 
+- qgis-up: update qgis using homebrew. 
+- r-up: update r using hombrew.
+- r-packages-up: update r packages. 
 - update: update different elements of the system
   - homebrew
   - r libraries 
+  - gems
+  - pip 
+  - app store
