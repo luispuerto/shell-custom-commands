@@ -1,0 +1,10 @@
+
+# This is a shell script to update Homebrew
+
+# Setting "verbose mode"
+set -x 
+brew update # update homebrew 
+brew upgrade # upgrade the packages
+brew cu -ya  # update and upgrade cask packages
+brew cleanup # clean everything
+set +x 
