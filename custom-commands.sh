@@ -23,6 +23,7 @@ function up-brew () {
 # Update R Packages
 function up-r-packages () {
 	echo "\U1F4CC ${RED}==>${NC} Rscript --vanilla -e \"update.packages(ask = F, repos = 'cloud.r-project.org', checkBuild = T)\" \U1F91E"
+	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
 	Rscript --vanilla -e "update.packages(ask = F, repos = 'cloud.r-project.org', checkBuild = T)"
 }
 
