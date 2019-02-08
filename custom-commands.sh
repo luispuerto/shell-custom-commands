@@ -90,17 +90,20 @@ function reinstall-qgis () {
 	brew link --force python
 
 	# Installing QGIS 
-	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with grass, saga, r, orfeo, qspatialite, lastools, liblas, "
-	echo "szip, taudem, whitebox and mssql"
+	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, haf5, saga, r, orfeo, pdal,"
+	echo "qspatialite, lastools, liblas, szip, taudem, whitebox and mssql"
 	echo "\U1F91E\U1F91E\U1F91E\U1F91E\U1F91E\U1F340\U1F340\U1F340\U1F340\U1F340"
 	echo "\e[3mMay the force be with you!\e[0m"
 	echo "psss! Building time around 20' to 40'. You better get a coffee \U2615 or beer \U1F37A, and relax \U1F6CB"
 	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
 	brew install qgis \
+		--with-gpsbabel \
 		--with-grass \
+		--with-hdf5 \
 		--with-saga \
 		--with-r \
 		--with-orfeo \
+		--with-pdal \
 		--with-qspatialite \
 		--with-lastools \
 		--with-liblas \
