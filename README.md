@@ -214,3 +214,25 @@ qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGI
 osascript -e 'tell application "Finder"' -e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications")' -e 'end tell'
 ```
 
+## Alias QGIS 
+
+This is a command to just create —reinstall— an alias to the QGIS installation. It's useful in case QGIS is updated. 
+
+```shell
+$ alias-qgis
+```
+
+The script executes: 
+
+```sh
+# Creating an alias to /Applications 
+echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
+trash /Applications/QGIS.app
+qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGIS.app
+osascript -e 'tell application "Finder"' -e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications")' -e 'end tell'
+```
+
+
+
+
+
