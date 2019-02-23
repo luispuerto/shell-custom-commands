@@ -167,18 +167,12 @@ $ reinstall-qgis
 These are commands that executes: 
 
 ```sh
-# Uninstall previous 
+# Uninstall previous QGIS
 echo "\U1F4CC ${RED}==>${NC} Uninstalling QGIS \U1F91E"
 brew uninstall qgis
 
-# Remove the cache 
-echo "\U1F4CC ${RED}==>${NC} Removing cache \U1F91E"
-rm -rf $(brew --cache)
-
-# Unlink and link Python
-echo "\U1F4CC ${RED}==>${NC} Unlink and link Python \U1F91E"
-brew unlink python
-brew link --force python
+# Fixing QGIS Homebrew dependencies
+fix-qgis-dependencies
 
 # Installing QGIS 
 echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, haf5, saga, r, orfeo, pdal,"
@@ -216,6 +210,33 @@ osascript \
 	-e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications/")' \
 	-e 'set name of result to "QGIS.app"' \
 	-e 'end tell'
+```
+
+#### Fixing QGIS dependencies
+
+This command tries to fix the QGIS dependencies reinstalling them and overwriting the links. This command is executed also when you run `reinstall-qgis`. 
+
+```shell
+$ fix-qgis-dependencies
+```
+
+The command executes:
+
+```sh
+echo "\U1F4CC ${RED}==>${NC} Fixing QGIS Homebrew dependencies \U1F91E"
+
+echo "\U1F4CC ${RED}==>${NC} Removing cache \U1F91E"
+rm -rf $(brew --cache)
+
+echo "\U1F4CC ${RED}==>${NC} Reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config \U1F91E"
+brew reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config
+
+echo "\U1F4CC ${RED}==>${NC} Link (overwrite)  sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
+brew link --overwrite qt python sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six
+
+echo "\U1F4CC ${RED}==>${NC} Unlink and link gettext \U1F91E"
+brew unlink gettext 
+brew link --force gettext
 ```
 
 ## Alias QGIS 
