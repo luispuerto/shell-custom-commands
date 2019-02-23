@@ -127,6 +127,24 @@ function reinstall-qgis () {
 		-e 'end tell'
 }
 
+# Fixing QGIS Homebrew dependencies
+function fix-qgis-dependencies {
+	echo "\U1F4CC ${RED}==>${NC} Fixing QGIS Homebrew dependencies \U1F91E"
+	
+	echo "\U1F4CC ${RED}==>${NC} Removing cache \U1F91E"
+	rm -rf $(brew --cache)
+
+	echo "\U1F4CC ${RED}==>${NC} Reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config \U1F91E"
+	brew reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config
+	
+	echo "\U1F4CC ${RED}==>${NC} Link (overwrite)  sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
+	brew link --overwrite qt python sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six
+
+	echo "\U1F4CC ${RED}==>${NC} Unlink and link gettext \U1F91E"
+	brew unlink gettext 
+	brew link --force gettext
+}
+
 # QGIS Alias
 function alias-qgis () {
 	echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
