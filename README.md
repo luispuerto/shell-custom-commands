@@ -211,7 +211,11 @@ brew install qgis \
 echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
 trash /Applications/QGIS.app
 qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGIS.app
-osascript -e 'tell application "Finder"' -e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications")' -e 'end tell'
+osascript \
+	-e 'tell application "Finder"' \
+	-e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications/")' \
+	-e 'set name of result to "QGIS.app"' \
+	-e 'end tell'
 ```
 
 ## Alias QGIS 
@@ -229,7 +233,11 @@ The script executes:
 echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
 trash /Applications/QGIS.app
 qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGIS.app
-osascript -e 'tell application "Finder"' -e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications")' -e 'end tell'
+osascript \
+	-e 'tell application "Finder"' \
+	-e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications/")' \
+	-e 'set name of result to "QGIS.app"' \
+	-e 'end tell'
 ```
 
 
