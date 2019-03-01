@@ -59,9 +59,9 @@ function reinstall-r () {
 
 	# Uninstalling R & Cairo
 	echo "\U1F4CC ${RED}==>${NC}  Uninstalling R & Cairo \U1F91E"
-	brew uninstall R cairo 
-	brew uninstall sethrfore/r-srf/cairo
-	brew uninstall sethrfore/r-srf/r
+	brew uninstall --ignore-dependencies R cairo 
+	brew uninstall --ignore-dependencies sethrfore/r-srf/cairo
+	brew uninstall --ignore-dependencies sethrfore/r-srf/r
 	
 	# Installing Cairo
 	echo "\U1F4CC ${RED}==>${NC} Installing Cairo \U1F91E"
