@@ -102,8 +102,8 @@ function reinstall-qgis () {
 	fix-qgis-dependencies
 
 	# Installing QGIS 
-	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, haf5, saga, r, orfeo, pdal,"
-	echo "qspatialite, lastools, liblas, szip, taudem, whitebox and mssql"
+	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, saga, r, orfeo,"
+	echo "qspatialite, lastools, taudem, whitebox and mssql"
 	echo "\U1F91E\U1F91E\U1F91E\U1F91E\U1F91E\U1F340\U1F340\U1F340\U1F340\U1F340"
 	echo "\e[3mMay the force be with you!\e[0m"
 	echo "psss! Building time around 20' to 40'. You better get a coffee \U2615 or beer \U1F37A, and relax \U1F6CB"
@@ -111,15 +111,11 @@ function reinstall-qgis () {
 	brew install qgis \
 		--with-gpsbabel \
 		--with-grass \
-		--with-hdf5 \
 		--with-saga \
 		--with-r \
 		--with-orfeo \
-		--with-pdal \
 		--with-qspatialite \
 		--with-lastools \
-		--with-liblas \
-		--with-szip \
 		--with-taudem \
 		--with-whitebox \
 		--with-mssql
