@@ -69,7 +69,7 @@ function reinstall-r () {
 	
 	# Installing R
 	echo "\U1F4CC ${RED}==>${NC} Installing R with openblas, java, libtiff and cairo \U1F91E"
-	echo "\U1F3D7 ${RED}==>${NC} Building... \U1F3D7"
+	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
 	brew install sethrfore/r-srf/r --with-openblas --with-java --with-libtiff --with-cairo
 }
 
