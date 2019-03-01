@@ -134,6 +134,10 @@ function reinstall-qgis () {
 		fix-qgis-dependencies
 	fi
 
+	# Renaming R to r-back in Cellar to avoid conflict with QGIS R install 
+	echo "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflict with QGIS R install \U1F91E"
+	brew unlink r 
+	mv /usr/local/cellar/r /usr/local/cellar/r-backup
 
 	# Installing QGIS 
 	if [ $RESET=true ]; then
@@ -162,6 +166,12 @@ function reinstall-qgis () {
 	# Moving the app to Applications and creating a symbolic link in its place. 
 	# mv -f 'find $(brew --prefix)/Cellar/qgis/ -name "QGIS.app"' /Applications/QGIS.app
 	# ln -s /Applications/QGIS.app 'find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit'
+
+	# Deleting the R installed by QGIS formula and recovering previous R install
+	echo "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and recovering previous R install and linking it \U1F91E"
+	trash /usr/local/cellar/r
+	mv /usr/local/cellar/r-backup /usr/local/cellar/r
+	brew link r
 
 	# Creating an alias to /Applications 
 	echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
