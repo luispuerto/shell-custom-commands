@@ -57,20 +57,34 @@ function up-all () {
 # Reinstall R
 function reinstall-r () {
 
-	# Uninstalling R & Cairo
-	echo "\U1F4CC ${RED}==>${NC}  Uninstalling R & Cairo \U1F91E"
-	brew uninstall --ignore-dependencies R cairo 
-	brew uninstall --ignore-dependencies sethrfore/r-srf/cairo
-	brew uninstall --ignore-dependencies sethrfore/r-srf/r
-	
-	# Installing Cairo
-	echo "\U1F4CC ${RED}==>${NC} Installing Cairo \U1F91E"
-	brew install sethrfore/r-srf/cairo
-	
-	# Installing R
-	echo "\U1F4CC ${RED}==>${NC} Installing R with openblas, java, libtiff and cairo \U1F91E"
-	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
-	brew install sethrfore/r-srf/r --with-openblas --with-java --with-libtiff --with-cairo
+	# Capturing flags
+	unset RESET
+	while getopts "r" opts
+	do 
+		case $opts in 
+			-r | --reset) RESET=true ;; 
+		esac
+	done
+
+	if [ $RESET=true ]; then 
+		# Uninstalling R & Cairo
+		echo "\U1F4CC ${RED}==>${NC}  Uninstalling R & Cairo \U1F91E"
+		brew uninstall --ignore-dependencies R cairo 
+		brew uninstall --ignore-dependencies sethrfore/r-srf/cairo
+		brew uninstall --ignore-dependencies sethrfore/r-srf/r
+		
+		# Installing Cairo
+		echo "\U1F4CC ${RED}==>${NC} Installing Cairo \U1F91E"
+		brew install sethrfore/r-srf/cairo
+		
+		# Installing R
+		echo "\U1F4CC ${RED}==>${NC} Installing R with openblas, java, libtiff and cairo \U1F91E"
+		echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
+		brew install sethrfore/r-srf/r --with-openblas --with-java --with-libtiff --with-cairo
+
+	else
+		brew reinstall sethrfore/r-srf/r
+	fi 
 }
 
 # Fixing QGIS Homebrew dependencies
@@ -93,15 +107,30 @@ function fix-qgis-dependencies {
 
 # Reinstall QGIS 
 function reinstall-qgis () {
+	# Capturing flags
+	unset DEPENDENCIES RESET
+	while getopts "fr" opts
+	do 
+		case $opts in 
+			-f | --fix-dependencies) DEPENDENCIES=true ;; 
+			-r | --reset) RESET=true ;; 
+		esac
+	done
 	
 	# Uninstall previous QGIS
+	if [ $RESET ]; then 
 	echo "\U1F4CC ${RED}==>${NC} Uninstalling QGIS \U1F91E"
 	brew uninstall qgis
+	fi 
 
 	# Fixing QGIS Homebrew dependencies
-	fix-qgis-dependencies
+	if [ $DEPENDENCIES=true ]; then 
+		fix-qgis-dependencies
+	fi
+
 
 	# Installing QGIS 
+	if [ $RESET=true ]; then
 	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, saga, r, orfeo,"
 	echo "qspatialite, lastools, taudem, whitebox and mssql"
 	echo "\U1F91E\U1F91E\U1F91E\U1F91E\U1F91E\U1F340\U1F340\U1F340\U1F340\U1F340"
@@ -119,6 +148,10 @@ function reinstall-qgis () {
 		--with-taudem \
 		--with-whitebox \
 		--with-mssql
+	
+	else 
+		brew reinstall qgis
+	fi 
 
 	# Moving the app to Applications and creating a symbolic link in its place. 
 	# mv -f 'find $(brew --prefix)/Cellar/qgis/ -name "QGIS.app"' /Applications/QGIS.app
