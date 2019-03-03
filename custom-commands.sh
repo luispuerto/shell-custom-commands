@@ -10,11 +10,11 @@ NC='\033[0m' # No Color
 
 # Update Homebrew
 function up-brew () {
-	echo "\U1F4CC ${RED}==>${NC} Updating Homebrew \U1F37A  with 'brew update' \U1F91E"
+	echo "\U1F4CC ${RED}==>${NC} Updating Homebrew \U1F37A with 'brew update' \U1F91E"
 	brew update
-	echo "\U1F4CC ${RED}==>${NC} Upgrading Homebrew \U1F37A  with 'brew upgrade' \U1F91E"
+	echo "\U1F4CC ${RED}==>${NC} Upgrading Homebrew \U1F37A with 'brew upgrade' \U1F91E"
 	brew upgrade
-	echo "\U1F4CC ${RED}==>${NC} Upgrading Casks \U1F373  with 'brew cu -ya' \U1F91E"
+	echo "\U1F4CC ${RED}==>${NC} Upgrading Casks \U1F373 with 'brew cu -ya' \U1F91E"
 	brew cu -ya
 	echo "\U1F4CC ${RED}==>${NC} Cleaning \U1F9FD  with 'brew cleanup' \U1F91E"
 	brew cleanup
@@ -33,15 +33,9 @@ function up-r-packages () {
 	fi 
 }
 
-# Update gems
-function up-gems () {
-	echo "\U1F4CC ${RED}==>${NC} Updating Ruby \U1F48E  gems \U1F91E"
-	gem update
-}
-
 # Update Python Packages
 function up-py-packages () {
-	echo "\U1F4CC ${RED}==>${NC} Updating Python \U1F40D  Packages \U1F4E6 \U1F91E"
+	echo "\U1F4CC ${RED}==>${NC} Updating Python \U1F40D Packages \U1F4E6 \U1F91E"
 	pip install --upgrade pip setuptools wheel
 	pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 	pip3 install --upgrade pip setuptools wheel
@@ -52,7 +46,8 @@ function up-py-packages () {
 function up-all () {
 	up-brew
 	up-r-packages
-	up-gems
+	echo "\U1F4CC ${RED}==>${NC} Updating Ruby \U1F48E gems \U1F91E"
+	gem update 
 	up-py-packages
 	echo "\U1F4CC ${RED}==>${NC} updating macOS Apps in the App Mac Store \U1F5A5 \U1F91E"
 	mas upgrade
@@ -74,7 +69,7 @@ function reinstall-r () {
 
 	if [ $RESET=true ]; then 
 		# Uninstalling R & Cairo
-		echo "\U1F4CC ${RED}==>${NC}  Uninstalling R & Cairo \U1F91E"
+		echo "\U1F4CC ${RED}==>${NC} Uninstalling R & Cairo \U1F91E"
 		brew uninstall --ignore-dependencies R cairo 
 		brew uninstall --ignore-dependencies sethrfore/r-srf/cairo
 		brew uninstall --ignore-dependencies sethrfore/r-srf/r
@@ -100,10 +95,13 @@ function fix-qgis-dependencies {
 	echo "\U1F4CC ${RED}==>${NC} Removing cache \U1F91E"
 	rm -rf $(brew --cache)
 
-	echo "\U1F4CC ${RED}==>${NC} Reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config \U1F91E"
-	brew reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config
+	echo -n "\U1F4CC ${RED}==>${NC} Reinstall ninja gsl python qt sip-qt5 pyqt-qt5 "
+	echo "pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config \U1F91E"
+	brew reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 \
+		six bison flex pkg-config
 	
-	echo "\U1F4CC ${RED}==>${NC} Link (overwrite) python sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
+	echo -n "\U1F4CC ${RED}==>${NC} Link (overwrite) python sip-qt5 "
+	echo "pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
 	brew link --overwrite python sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six
 
 	echo "\U1F4CC ${RED}==>${NC} Unlink and link gettext \U1F91E"
@@ -135,7 +133,8 @@ function reinstall-qgis () {
 	fi
 
 	# Renaming R to r-back in Cellar to avoid conflict with QGIS R install 
-	echo "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflict with QGIS R install \U1F91E"
+	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflict "
+	echo "with QGIS R install \U1F91E"
 	brew unlink r 
 	mv /usr/local/cellar/r /usr/local/cellar/r-backup
 
@@ -145,7 +144,8 @@ function reinstall-qgis () {
 	echo "qspatialite, lastools, taudem, whitebox and mssql"
 	echo "\U1F91E\U1F91E\U1F91E\U1F91E\U1F91E\U1F340\U1F340\U1F340\U1F340\U1F340"
 	echo "\e[3mMay the force be with you!\e[0m"
-	echo "psss! Building time around 20' to 40'. You better get a coffee \U2615 or beer \U1F37A, and relax \U1F6CB"
+	echo -n "psss! Building time around 20' to 40'. You better get a coffee \U2615 "
+	echo "or beer \U1F37A, and relax \U1F6CB"
 	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
 	brew install qgis \
 		--with-gpsbabel \
@@ -168,7 +168,8 @@ function reinstall-qgis () {
 	# ln -s /Applications/QGIS.app 'find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit'
 
 	# Deleting the R installed by QGIS formula and recovering previous R install
-	echo "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and recovering previous R install and linking it \U1F91E"
+	echo -n "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and "
+	echo -e "recovering previous R install and linking it \U1F91E" 
 	trash /usr/local/cellar/r
 	mv /usr/local/cellar/r-backup /usr/local/cellar/r
 	brew link r
