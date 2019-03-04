@@ -23,7 +23,7 @@ function up-brew () {
 # Update R Packages
 function up-r-packages () {
 	echo "\U1F4CC ${RED}==>${NC} Checking for new R packages \U1F4E6 \U1F91E"
-	if [ ! $(Rscript --vanilla -e "old.packages(repos = 'cloud.r-project.org')")=NULL ]; then
+	if [ ! "$(Rscript --vanilla -e "old.packages(repos = 'cloud.r-project.org')")" = NULL ]; then
 		echo "\U1F4CC ${RED}==>${NC} There are outdated R packages \U1F4E6 \U1F91E"
 		echo "\U1F4CC ${RED}==>${NC} Upgrading & building... \U1F3D7"
 		Rscript --vanilla -e "update.packages(ask = F, repos = 'cloud.r-project.org', checkBuild = T)"
