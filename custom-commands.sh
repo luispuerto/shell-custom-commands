@@ -147,17 +147,7 @@ function reinstall-qgis () {
 	echo -n "psss! Building time around 20' to 40'. You better get a coffee \U2615 "
 	echo "or beer \U1F37A, and relax \U1F6CB"
 	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
-	brew install qgis \
-		--with-gpsbabel \
-		--with-grass \
-		--with-saga \
-		--with-r \
-		--with-orfeo \
-		--with-qspatialite \
-		--with-lastools \
-		--with-taudem \
-		--with-whitebox \
-		--with-mssql
+	brew install qgis
 	
 	else 
 		brew reinstall qgis
