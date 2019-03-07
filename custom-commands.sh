@@ -164,6 +164,10 @@ function reinstall-qgis () {
 	mv /usr/local/cellar/r-backup /usr/local/cellar/r
 	brew link r
 
+	# Fixing a temporary problem with OTB
+	mv /usr/local/Cellar/qgis/3.6.0_4/QGIS.app/Contents/Resources/python/plugins/otb/OTBUtils.py \
+	/usr/local/Cellar/qgis/3.6.0_4/QGIS.app/Contents/Resources/python/plugins/otb/OtbUtils.py
+
 	# Creating an alias to /Applications 
 	echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
 	trash /Applications/QGIS.app
