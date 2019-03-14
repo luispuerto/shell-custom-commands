@@ -190,3 +190,9 @@ function alias-qgis () {
 		-e 'set name of result to "QGIS.app"' \
 		-e 'end tell'
 }
+
+# Renaming git locale
+function fix-git-locale () {
+	find $(brew --prefix)/Cellar/git -type d -name "es" -print0 | xargs -I{} mv {} {}.back
+}
+
