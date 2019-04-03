@@ -102,7 +102,7 @@ function fix-qgis-dependencies {
 	
 	echo -n "\U1F4CC ${RED}==>${NC} Link (overwrite) python sip-qt5 "
 	echo "pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
-	brew link --overwrite python sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six
+	brew link --overwrite osgeo-sip
 
 	echo "\U1F4CC ${RED}==>${NC} Unlink and link gettext \U1F91E"
 	brew unlink gettext 
