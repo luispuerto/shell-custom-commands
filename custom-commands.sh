@@ -36,10 +36,10 @@ function up-r-packages () {
 # Update Python Packages
 function up-py-packages () {
 	echo "\U1F4CC ${RED}==>${NC} Updating Python \U1F40D Packages \U1F4E6 \U1F91E"
-	pip install --upgrade pip setuptools wheel
-	pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+	# pip install --upgrade pip setuptools wheel
+	# pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 	pip3 install --upgrade pip setuptools wheel
-	pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+	pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
 }
 
 # Update all
