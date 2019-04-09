@@ -132,16 +132,16 @@ function fix-git-locale () {
 function reinstall-qgis () {
 	# Capturing flags
 	unset DEPENDENCIES RESET
-	while getopts "fr" opts
+	while getopts "r" opts
 	do 
 		case $opts in 
-			# -f | --fix-dependencies) DEPENDENCIES=true ;; 
-			-r | --reset) RESET=true ;; 
+			# -f ) DEPENDENCIES=true ;; 
+			r) RESET="true" ;; 
 		esac
 	done
 	
 	# Uninstall previous QGIS
-	if [ $RESET == "true" ]; then 
+	if [ "$RESET" = "true" ]; then 
 	echo "\U1F4CC ${RED}==>${NC} Uninstalling QGIS \U1F91E"
 	brew uninstall osgeo-qgis
 	fi 
@@ -158,7 +158,7 @@ function reinstall-qgis () {
 	mv /usr/local/cellar/r /usr/local/cellar/r-backup
 
 	# Installing QGIS 
-	if [ $RESET == "true" ]; then
+	if [ "$RESET" = "true" ]; then
 	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, saga, r, orfeo,"
 	echo "qspatialite, lastools, taudem, whitebox and mssql"
 	echo "\U1F91E\U1F91E\U1F91E\U1F91E\U1F91E\U1F340\U1F340\U1F340\U1F340\U1F340"
@@ -169,7 +169,7 @@ function reinstall-qgis () {
 	brew install osgeo-qgis
 	
 	else 
-		brew reinstall osgeo-qgis
+		brew reinstall osgeo-qgis || brew install osgeo-qgis
 	fi 
 
 	# Moving the app to Applications and creating a symbolic link in its place. 
