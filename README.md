@@ -1,17 +1,17 @@
-# Terminal Commands :desktop_computer:
+# Bash Custom Commands :desktop_computer:
 
-This is a small shell script that produce some command for update apps or reinstall it from scratch. 
+This is a small repo with some bash custom commands I use. Mainly to update software in a easier way. 
 
 ## How to use install
 
 Pretty easy. Just clone this repo: 
 
 ```shell
-$ git clone git@github.com:luispuerto/terminal-commands.git
-$ git clone https://github.com/luispuerto/terminal-commands.git # if you prefer http protocol
+$ git clone git@github.com:luispuerto/bash-custom-commands.git
+$ git clone https://github.com/luispuerto/bash-custom-commands.git # if you prefer http protocol
 ```
 
-Then in bash or zsh you have to source `custom-commans.sh` in your shell config file. More info [here](https://medium.com/devnetwork/how-to-create-your-own-custom-terminal-commands-c5008782a78e) but basically: 
+Then in bash or zsh you have to source `updating-software.sh` in your shell config file. More info [here](https://medium.com/devnetwork/how-to-create-your-own-custom-terminal-commands-c5008782a78e) but basically: 
 
 ```shell
 $ open ~/.zshrc # for zsh
@@ -21,7 +21,7 @@ $ open ~/.bash_profile #for bash
 And paste something like: 
 
 ```
-source ~/path/to/terminal-commands-repo/custom-commands.sh
+source ~/path/to/bash-custom-commands-repo/updating-software.sh
 ```
 
 Open and close the terminal —or whatever you are using— and that's it. 
