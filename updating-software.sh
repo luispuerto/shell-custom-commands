@@ -155,7 +155,7 @@ function reinstall-qgis () {
 	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflicts "
 	echo "with QGIS R install \U1F91E"
 	brew unlink r 
-	mv /usr/local/cellar/r /usr/local/cellar/r-backup
+	mv /usr/local/Cellar/r /usr/local/Cellar/r-backup
 
 	# Installing QGIS 
 	if [ "$RESET" = "true" ]; then
@@ -179,8 +179,8 @@ function reinstall-qgis () {
 	# Deleting the R installed by QGIS formula and recovering previous R install
 	echo -n "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and "
 	echo -e "recovering previous R install and linking it \U1F91E" 
-	trash /usr/local/cellar/r
-	mv /usr/local/cellar/r-backup /usr/local/cellar/r
+	trash /usr/local/Cellar/r
+	mv /usr/local/Cellar/r-backup /usr/local/Cellar/r
 	brew link r
 
 	# Creating an alias to /Applications 
