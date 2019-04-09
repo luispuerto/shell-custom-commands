@@ -88,26 +88,45 @@ function reinstall-r () {
 	fi 
 }
 
-# Fixing QGIS Homebrew dependencies
-function fix-qgis-dependencies {
-	echo "\U1F4CC ${RED}==>${NC} Fixing QGIS Homebrew dependencies \U1F91E"
-	
-	echo "\U1F4CC ${RED}==>${NC} Removing cache \U1F91E"
-	rm -rf $(brew --cache)
 
-	echo -n "\U1F4CC ${RED}==>${NC} Reinstall ninja gsl python qt sip-qt5 pyqt-qt5 "
-	echo "pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config \U1F91E"
-	brew reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 \
-		six bison flex pkg-config
-	
-	echo -n "\U1F4CC ${RED}==>${NC} Link (overwrite) python sip-qt5 "
-	echo "pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
-	brew link --overwrite osgeo-sip
-
-	echo "\U1F4CC ${RED}==>${NC} Unlink and link gettext \U1F91E"
-	brew unlink gettext 
-	brew link --force gettext
+# QGIS Alias
+function alias-qgis () {
+	echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
+	trash /Applications/QGIS.app
+	qgis_location=$(find $(brew --prefix)/Cellar/osgeo-qgis/ -name "3.*" -print -quit)/QGIS.app
+	osascript \
+		-e 'tell application "Finder"' \
+		-e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications/")' \
+		-e 'set name of result to "QGIS.app"' \
+		-e 'end tell'
 }
+
+# Renaming git locale
+function fix-git-locale () {
+	find $(brew --prefix)/Cellar/git -type d -name "es" -print0 | xargs -I{} mv {} {}.back
+}
+
+# Fixing QGIS Homebrew dependencies
+# This seems no longer necessary, buy if it's need to be adapted to the new osgeo names. 
+# function fix-qgis-dependencies {
+# 	echo "\U1F4CC ${RED}==>${NC} Fixing QGIS Homebrew dependencies \U1F91E"
+	
+# 	echo "\U1F4CC ${RED}==>${NC} Removing cache \U1F91E"
+# 	rm -rf $(brew --cache)
+
+# 	echo -n "\U1F4CC ${RED}==>${NC} Reinstall ninja gsl python qt sip-qt5 pyqt-qt5 "
+# 	echo "pyqt5-webkit qscintilla2-qt5 six bison flex pkg-config \U1F91E"
+# 	brew reinstall ninja gsl python qt sip-qt5 pyqt-qt5 pyqt5-webkit qscintilla2-qt5 \
+# 		six bison flex pkg-config
+	
+# 	echo -n "\U1F4CC ${RED}==>${NC} Link (overwrite) python sip-qt5 "
+# 	echo "pyqt-qt5 pyqt5-webkit qscintilla2-qt5 six \U1F91E"
+# 	brew link --overwrite osgeo-sip
+
+# 	echo "\U1F4CC ${RED}==>${NC} Unlink and link gettext \U1F91E"
+# 	brew unlink gettext 
+# 	brew link --force gettext
+# }
 
 # Reinstall QGIS 
 function reinstall-qgis () {
@@ -116,41 +135,41 @@ function reinstall-qgis () {
 	while getopts "fr" opts
 	do 
 		case $opts in 
-			-f | --fix-dependencies) DEPENDENCIES=true ;; 
+			# -f | --fix-dependencies) DEPENDENCIES=true ;; 
 			-r | --reset) RESET=true ;; 
 		esac
 	done
 	
 	# Uninstall previous QGIS
-	if [ $RESET ]; then 
+	if [ $RESET == "true" ]; then 
 	echo "\U1F4CC ${RED}==>${NC} Uninstalling QGIS \U1F91E"
-	brew uninstall qgis
+	brew uninstall osgeo-qgis
 	fi 
 
 	# Fixing QGIS Homebrew dependencies
-	if [ $DEPENDENCIES=true ]; then 
-		fix-qgis-dependencies
-	fi
+	# if [ $DEPENDENCIES=true ]; then 
+	# 	fix-qgis-dependencies
+	# fi
 
 	# Renaming R to r-back in Cellar to avoid conflict with QGIS R install 
-	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflict "
+	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflicts "
 	echo "with QGIS R install \U1F91E"
 	brew unlink r 
 	mv /usr/local/cellar/r /usr/local/cellar/r-backup
 
 	# Installing QGIS 
-	if [ $RESET=true ]; then
+	if [ $RESET == "true" ]; then
 	echo "\U1F4CC ${RED}==>${NC} Installing QGIS with gpsbabel, grass, saga, r, orfeo,"
 	echo "qspatialite, lastools, taudem, whitebox and mssql"
 	echo "\U1F91E\U1F91E\U1F91E\U1F91E\U1F91E\U1F340\U1F340\U1F340\U1F340\U1F340"
 	echo "\e[3mMay the force be with you!\e[0m"
-	echo -n "psss! Building time around 20' to 40'. You better get a coffee \U2615 "
-	echo "or beer \U1F37A, and relax \U1F6CB"
-	echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
-	brew install qgis
+	# echo -n "psss! Building time around 20' to 40'. You better get a coffee \U2615 "
+	# echo "or beer \U1F37A, and relax \U1F6CB"
+	# echo "\U1F4CC ${RED}==>${NC} Building... \U1F3D7"
+	brew install osgeo-qgis
 	
 	else 
-		brew reinstall qgis
+		brew reinstall osgeo-qgis
 	fi 
 
 	# Moving the app to Applications and creating a symbolic link in its place. 
@@ -164,35 +183,6 @@ function reinstall-qgis () {
 	mv /usr/local/cellar/r-backup /usr/local/cellar/r
 	brew link r
 
-	# Fixing a temporary problem with OTB
-	mv /usr/local/Cellar/qgis/3.6.0_4/QGIS.app/Contents/Resources/python/plugins/otb/OTBUtils.py \
-	/usr/local/Cellar/qgis/3.6.0_4/QGIS.app/Contents/Resources/python/plugins/otb/OtbUtils.py
-
 	# Creating an alias to /Applications 
-	echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
-	trash /Applications/QGIS.app
-	qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGIS.app
-	osascript \
-		-e 'tell application "Finder"' \
-		-e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications/")' \
-		-e 'set name of result to "QGIS.app"' \
-		-e 'end tell'
+	alias-qgis
 }
-
-# QGIS Alias
-function alias-qgis () {
-	echo "\U1F4CC ${RED}==>${NC} Creating a link in /Applications \U1F91E"
-	trash /Applications/QGIS.app
-	qgis_location=$(find $(brew --prefix)/Cellar/qgis/ -name "3.*" -print -quit)/QGIS.app
-	osascript \
-		-e 'tell application "Finder"' \
-		-e 'make new alias to file (posix file "'$qgis_location'") at (posix file "/Applications/")' \
-		-e 'set name of result to "QGIS.app"' \
-		-e 'end tell'
-}
-
-# Renaming git locale
-function fix-git-locale () {
-	find $(brew --prefix)/Cellar/git -type d -name "es" -print0 | xargs -I{} mv {} {}.back
-}
-
