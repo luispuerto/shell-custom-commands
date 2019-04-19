@@ -2,6 +2,25 @@
 
 This is a small repo with some bash custom commands I use. Mainly to update software in a easier way. 
 
+<!-- MarkdownTOC -->
+
+- [How to use install](#how-to-use-install)
+- [Dependencies](#dependencies)
+- [Update & Upgrade Commands](#update--upgrade-commands)
+	- [Update Homebrew](#update-homebrew)
+	- [Update R packages](#update-r-packages)
+	- [Update Python packages](#update-python-packages)
+	- [Update all](#update-all)
+- [Reinstall Commands](#reinstall-commands)
+	- [Reinstall R](#reinstall-r)
+	- [Reinstall QGIS](#reinstall-qgis)
+		- [Fixing QGIS dependencies](#fixing-qgis-dependencies)
+		- [Alias QGIS](#alias-qgis)
+- [Other commands](#other-commands)
+
+<!-- /MarkdownTOC -->
+
+
 ## How to use install
 
 Pretty easy. Just clone this repo: 
@@ -100,10 +119,20 @@ This command tries to fix the QGIS dependencies reinstalling them and overwritin
 $ fix-qgis-dependencies
 ```
 
-## Alias QGIS 
+#### Alias QGIS 
 
 This is a command to just create —reinstall— an alias to the QGIS installation. It's useful in case QGIS is updated. 
 
 ```shell
 $ alias-qgis
 ```
+
+## Other commands 
+
+```shell
+$ subldiff <file1> <file2>
+```
+
+This is a command that uses [SublimeMerge3](https://www.sublimerge.com/sm3/) as a `diff tool`. You should have [Sublime Text](https://www.sublimetext.com) and this package installed to make it work properly. 
+
+
