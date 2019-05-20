@@ -88,6 +88,26 @@ function reinstall-r () {
 	fi 
 }
 
+function r-out () {
+
+	# Renaming R to r-back in Cellar to avoid conflict with QGIS R install 
+	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflicts "
+	echo "with QGIS R install \U1F91E"
+	brew unlink r 
+	mv /usr/local/Cellar/r /usr/local/Cellar/r-backup
+}
+
+function r-in () {
+
+	# Deleting the R installed by QGIS formula and recovering previous R install
+	echo -n "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and "
+	echo -e "recovering previous R install and linking it \U1F91E" 
+	trash /usr/local/Cellar/r
+	mv /usr/local/Cellar/r-backup /usr/local/Cellar/r
+	brew link r
+
+}
+
 
 # QGIS Alias
 function alias-qgis () {
