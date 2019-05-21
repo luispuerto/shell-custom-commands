@@ -12,8 +12,8 @@ NC='\033[0m' # No Color
 function up-brew () {
 	echo "\U1F4CC ${RED}==>${NC} Updating Homebrew \U1F37A with 'brew update' \U1F91E"
 	brew update
-	echo "\U1F4CC ${RED}==>${NC} Upgrading Homebrew \U1F37A with 'brew upgrade' \U1F91E"
-	brew upgrade
+	echo "\U1F4CC ${RED}==>${NC} Upgrading Homebrew \U1F37A with 'brew upgrade --force-bottle' \U1F91E"
+	brew upgrade --force-bottle
 	echo "\U1F4CC ${RED}==>${NC} Upgrading Casks \U1F373 with 'brew cu -ya' \U1F91E"
 	brew cu -ya
 	echo "\U1F4CC ${RED}==>${NC} Cleaning \U1F9FD  with 'brew cleanup' \U1F91E"
