@@ -103,6 +103,7 @@ function r-in () {
 	# Deleting the R installed by QGIS formula and recovering previous R install
 	echo -n "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and "
 	echo -e "recovering previous R install and linking it \U1F91E" 
+	brew unlink r cairo
 	trash /usr/local/Cellar/r /usr/local/Cellar/cairo
 	mv /usr/local/Cellar/r-backup /usr/local/Cellar/r
 	mv /usr/local/Cellar/cairo-backup /usr/local/Cellar/cairo
