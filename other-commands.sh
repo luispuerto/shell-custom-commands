@@ -4,6 +4,6 @@
 
 # Easy use of sublimerge3 tool as a wide system diff tool
 
-funcion subldiff () {
+function subldiff () {
 	subl -n $1 $2 --command "sublimerge_diff_views"
 }
