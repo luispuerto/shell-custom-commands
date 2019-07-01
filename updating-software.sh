@@ -93,8 +93,9 @@ function r-out () {
 	# Renaming R to r-back in Cellar to avoid conflict with QGIS R install 
 	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflicts "
 	echo "with QGIS R install \U1F91E"
-	brew unlink r 
+	brew unlink r cairo
 	mv /usr/local/Cellar/r /usr/local/Cellar/r-backup
+	mv /usr/local/Cellar/cairo /usr/local/Cellar/cairo-backup
 }
 
 function r-in () {
@@ -102,9 +103,10 @@ function r-in () {
 	# Deleting the R installed by QGIS formula and recovering previous R install
 	echo -n "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and "
 	echo -e "recovering previous R install and linking it \U1F91E" 
-	trash /usr/local/Cellar/r
+	trash /usr/local/Cellar/r /usr/local/Cellar/cairo
 	mv /usr/local/Cellar/r-backup /usr/local/Cellar/r
-	brew link r
+	mv /usr/local/Cellar/cairo-backup /usr/local/Cellar/cairo
+	brew link r cairo
 
 }
 
@@ -174,8 +176,9 @@ function reinstall-qgis () {
 	# Renaming R to r-back in Cellar to avoid conflict with QGIS R install 
 	echo -n "\U1F4CC ${RED}==>${NC} Renaming R to r-back in Cellar to avoid conflicts "
 	echo "with QGIS R install \U1F91E"
-	brew unlink r 
+	brew unlink r cairo
 	mv /usr/local/Cellar/r /usr/local/Cellar/r-backup
+	mv /usr/local/Cellar/cairo /usr/local/Cellar/cairo-backup
 
 	# Installing QGIS 
 	if [ "$RESET" = "true" ]; then
@@ -199,9 +202,10 @@ function reinstall-qgis () {
 	# Deleting the R installed by QGIS formula and recovering previous R install
 	echo -n "\U1F4CC ${RED}==>${NC} Deleting the R installed by QGIS formula and "
 	echo -e "recovering previous R install and linking it \U1F91E" 
-	trash /usr/local/Cellar/r
+	trash /usr/local/Cellar/r /usr/local/Cellar/cairo
 	mv /usr/local/Cellar/r-backup /usr/local/Cellar/r
-	brew link r
+	mv /usr/local/Cellar/cairo-backup /usr/local/Cellar/cairo
+	brew link r cairo
 
 	# Creating an alias to /Applications 
 	alias-qgis
