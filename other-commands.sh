@@ -7,3 +7,9 @@
 function subldiff () {
 	subl -n $1 $2 --command "sublimerge_diff_views"
 }
+
+function reset-bluetooth () {
+	blueutil -p 0
+	sleep 1
+	blueutil -p 1
+}
