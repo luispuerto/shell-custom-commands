@@ -49,7 +49,7 @@ function up-all () {
 	echo "\U1F4CC ${RED}==>${NC} Updating Ruby \U1F48E  gems \U1F91E"
 	gem update 
 	# up-py-packages
-	echo "\U1F4CC ${RED}==>${NC} updating macOS Apps in the App Mac Store \U1F5A5 \U1F91E"
+	echo "\U1F4CC ${RED}==>${NC} updating macOS Apps in the App Mac Store \U1F5A5  \U1F91E"
 	mas upgrade
 	echo "\U1F4CC ${RED}==>${NC} updating macOS System \U1F5A5  \U1F91E"
 	softwareupdate -i -a
