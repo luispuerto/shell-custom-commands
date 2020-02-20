@@ -7,16 +7,19 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
 - [How to use install](#how-to-use-install)
 - [Dependencies](#dependencies)
 - [Update & Upgrade Commands](#update--upgrade-commands)
-	- [Update Homebrew](#update-homebrew)
-	- [Update R packages](#update-r-packages)
-	- [Update Python packages](#update-python-packages)
-	- [Update all](#update-all)
+    - [Update Homebrew](#update-homebrew)
+    - [Update R packages](#update-r-packages)
+    - [Update Python packages](#update-python-packages)
+    - [Update all](#update-all)
 - [Reinstall Commands](#reinstall-commands)
-	- [Reinstall R](#reinstall-r)
-	- [Reinstall QGIS](#reinstall-qgis)
-		- [Fixing QGIS dependencies](#fixing-qgis-dependencies)
-		- [Alias QGIS](#alias-qgis)
+    - [Reinstall R](#reinstall-r)
+    - [Reinstall QGIS](#reinstall-qgis)
+        - [Fixing QGIS dependencies](#fixing-qgis-dependencies)
+        - [Alias QGIS](#alias-qgis)
 - [Other commands](#other-commands)
+    - [diff files with sublimemerge](#diff-files-with-sublimemerge)
+    - [Reset the bluetooth](#reset-the-bluetooth)
+    - [Reset sound](#reset-sound)
 
 <!-- /MarkdownTOC -->
 
@@ -129,10 +132,27 @@ $ alias-qgis
 
 ## Other commands 
 
+### diff files with sublimemerge
+
 ```shell
 $ subldiff <file1> <file2>
 ```
 
 This is a command that uses [SublimeMerge3](https://www.sublimerge.com/sm3/) as a `diff tool`. You should have [Sublime Text](https://www.sublimetext.com) and this package installed to make it work properly. 
 
+### Reset the bluetooth
+
+```shell 
+reset-bluetooth
+```
+
+This just resent the bluetooth device on your Mac. 
+
+### Reset sound
+
+```shell
+reset-sound
+```
+
+This just resent the `coreudiod` service. 
 
