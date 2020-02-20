@@ -13,3 +13,9 @@ function reset-bluetooth () {
 	sleep 1
 	blueutil -p 1
 }
+
+function reset-sound () {
+  local coreaudiod=/System/Library/LaunchDaemons/com.apple.audio.coreaudiod.plist
+  sudo launchctl unload $coreaudiod
+  sudo launchctl load $coreaudiod
+}
