@@ -20,6 +20,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
     - [diff files with sublimemerge](#diff-files-with-sublimemerge)
     - [Reset the bluetooth](#reset-the-bluetooth)
     - [Reset sound](#reset-sound)
+    - [Fix mail app](#fix-mail-app)
 
 <!-- /MarkdownTOC -->
 
@@ -155,4 +156,12 @@ reset-sound
 ```
 
 This just resent the `coreudiod` service. 
+
+### Fix mail app
+
+The mail app sometimes it's a little slow opening. It seems that `/Users/lpuerto/Library/Containers/com.apple.mail/Data/DataVaults/MailBundles/Library/Mail/Bundles/Properties.plist` gets corrupted or something. This function just delete it and the next time mail opens the file gets recreated. 
+
+```shell
+fix-mail-app
+```
 
