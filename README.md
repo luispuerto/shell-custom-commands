@@ -67,7 +67,7 @@ This command will perform a general update of all the Homebrew packages.
 $ up-brew
 ```
 
-It executes a brew update, upgrade cask upgrade and a cleanup. 
+It executes a brew update, upgrade and a cleanup. 
 
 ### Update R packages
 
