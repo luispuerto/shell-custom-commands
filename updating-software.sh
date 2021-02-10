@@ -24,9 +24,9 @@ function up-brew () {
 function up-r-packages () {
 	echo "\U1F4CC ${RED}==>${NC} Checking for new R packages \U1F4E6  \U1F91E"
 	if [ ! "$(Rscript --vanilla -e "old.packages(repos = 'cloud.r-project.org')")" = NULL ]; then
-		echo "\U1F4CC ${RED}==>${NC} There are outdated R packages \U1F4E6  \U1F91E"
-    Rscript --vanilla -e "old.packages(repos = 'cloud.r-project.org')"
-		echo "\U1F4CC ${RED}==>${NC} Upgrading & building... \U1F3D7"
+		echo "\U1F4CC ${RED}==>${NC} The following R packages are outdated \U1F4DC"
+    Rscript --vanilla -e "as.data.frame(old.packages(repos = 'cloud.r-project.org'))[,c(3,5,4)]"
+		echo "\U1F4CC ${RED}==>${NC} Upgrading / building... \U1F3D7"
 		Rscript --vanilla -e "update.packages(ask = F, repos = 'cloud.r-project.org', checkBuild = T)"
 
 	else 
