@@ -49,7 +49,6 @@ Open and close the terminal —or whatever you are using— and that's it.
 - [Homebrew](https://brew.sh) :beer:.
 - [mas](https://github.com/mas-cli/mas): `brew install mas`. 
 - [trash](https://hasseg.org/trash/): `brew install trash`. 
-- [homebrew cask upgrade](https://github.com/buo/homebrew-cask-upgrade): `brew tap buo/cask-upgrade`. 
 - Of course, R, Ruby, Python :smiley: too​. 
 
 ## Update & Upgrade Commands
