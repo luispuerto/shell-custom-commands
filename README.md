@@ -9,7 +9,6 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
 - [Update & Upgrade Commands](#update--upgrade-commands)
     - [Update Homebrew](#update-homebrew)
     - [Update R packages](#update-r-packages)
-    - [Update Python packages](#update-python-packages)
     - [Update all](#update-all)
     - [Link R to openBLAS](#link-r-to-openblas)
 - [Other commands](#other-commands)
@@ -74,14 +73,6 @@ $ up-r-pacakges
 ```
 
 It upgrades all R packages in your machine. 
-
-### Update Python packages
-
-This update Python Packages through pip and pip3. 
-
-```shell
-$ up-py-packages
-```
 
 ### Update all
 
