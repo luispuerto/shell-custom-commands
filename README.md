@@ -11,11 +11,6 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
     - [Update R packages](#update-r-packages)
     - [Update Python packages](#update-python-packages)
     - [Update all](#update-all)
-- [Reinstall Commands](#reinstall-commands)
-    - [Reinstall R](#reinstall-r)
-    - [Reinstall QGIS](#reinstall-qgis)
-        - [Fixing QGIS dependencies](#fixing-qgis-dependencies)
-        - [Alias QGIS](#alias-qgis)
 - [Other commands](#other-commands)
     - [diff files with sublimemerge](#diff-files-with-sublimemerge)
     - [Reset the bluetooth](#reset-the-bluetooth)
@@ -95,41 +90,9 @@ This updates brew packages, r packages, gems, App Mac Store Apps and macOS syste
 $ up-all
 ```
 
-## Reinstall Commands
 
-These commands uninstall and reinstall apps via Homebrew
-
-### Reinstall R
-
-This reinstall R from [sethrfore/r-srf](https://github.com/sethrfore/homebrew-r-srf) of reset `-r` the R install uninstalling Cairo and R (from core and [sethrfore/r-srf](https://github.com/sethrfore/homebrew-r-srf)) and reinstall it again from [sethrfore/r-srf](https://github.com/sethrfore/homebrew-r-srf) with openblas, java, libtiff and cairo.
-
-```shell
-$ reinstall-r -r
 ```
 
-### Reinstall QGIS
-
-This command just reinstall QGIS or reset `-r` uninstalling QGIS and reinstalling it again with with gpsbabel, grass, haf5, saga, r, orfeo, pdal, qspatialite, lastools, liblas, szip, taudem, whitebox and mssql. If `-f` is apply it will fix dependencies. 
-
-```shell
-$ reinstall-qgis -r -f 
-```
-
-#### Fixing QGIS dependencies
-
-This command tries to fix the QGIS dependencies reinstalling them and overwriting the links. This command is executed also when you run `reinstall-qgis`. 
-
-```shell
-$ fix-qgis-dependencies
-```
-
-#### Alias QGIS 
-
-This is a command to just create —reinstall— an alias to the QGIS installation. It's useful in case QGIS is updated. 
-
-```shell
-$ alias-qgis
-```
 
 ## Other commands 
 
