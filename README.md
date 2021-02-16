@@ -11,6 +11,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
     - [Update R packages](#update-r-packages)
     - [Update Python packages](#update-python-packages)
     - [Update all](#update-all)
+    - [Link R to openBLAS](#link-r-to-openblas)
 - [Other commands](#other-commands)
     - [diff files with sublimemerge](#diff-files-with-sublimemerge)
     - [Reset the bluetooth](#reset-the-bluetooth)
@@ -89,10 +90,15 @@ This updates brew packages, r packages, gems, App Mac Store Apps and macOS syste
 ```shell
 $ up-all
 ```
+### Link R to openBLAS 
 
+If you want to use openBLAS on your R install from the binary you need to link it manually using a symbolic link. This command do it for you.
 
+```shell 
+$ r-openblas
 ```
 
+You have to run it every time you updates or reinstall R. 
 
 ## Other commands 
 
