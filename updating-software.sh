@@ -51,3 +51,9 @@ function r-openblas () {
     /usr/local/opt/openblas/lib/libopenblas.0.dylib \
     /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib 
 }
+
+# Reinstall command line tools
+function command-line-tools-reinstall {
+  sudo rm -rf /Library/Developer/CommandLineTools
+  xcode-select --install
+}

@@ -11,6 +11,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
     - [Update R packages](#update-r-packages)
     - [Update all](#update-all)
     - [Link R to openBLAS](#link-r-to-openblas)
+    - [Reinstall Command Line Tools](#reinstall-command-line-tools)
 - [Other commands](#other-commands)
     - [diff files with sublimemerge](#diff-files-with-sublimemerge)
     - [Reset the bluetooth](#reset-the-bluetooth)
@@ -89,6 +90,14 @@ $ r-openblas
 ```
 
 You have to run it every time you updates or reinstall R. 
+
+### Reinstall Command Line Tools
+
+Sometimes when the system updates mess up with the command line tools install and they have to be reinstalled, this command is for that. 
+
+```shell
+$ command-line-tools-reinstall
+```
 
 ## Other commands 
 
