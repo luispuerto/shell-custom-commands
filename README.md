@@ -76,7 +76,7 @@ It upgrades all R packages in your machine.
 
 ### Update all
 
-This updates brew packages, r packages, gems, App Mac Store Apps and macOS system. 
+This updates oh-my-zsh, brew packages, r packages, gems, App Mac Store Apps and macOS system. 
 
 ```shell
 $ up-all
