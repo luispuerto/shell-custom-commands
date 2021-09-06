@@ -4,9 +4,9 @@
 
 # Easy use of sublimerge3 tool as a wide system diff tool
 
-function subldiff () {
-	subl -n $1 $2 --command "sublimerge_diff_views"
-}
+# function subldiff () {
+# 	# subl -n $1 $2 --command "sublimerge_diff_views"
+# }
 
 function reset-bluetooth () {
 	blueutil -p 0
