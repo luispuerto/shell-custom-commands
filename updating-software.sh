@@ -35,7 +35,7 @@ function up-r-packages () {
 # Update all
 function up-all () {
 	echo "\U1F4CC ${RED}==>${NC} Updating oh-my-zsh \U1F643  \U1F91E"
-  omz update
+  $ZSH/tools/upgrade.sh
   up-brew
 	up-r-packages
 	echo "\U1F4CC ${RED}==>${NC} Updating Ruby \U1F48E  gems \U1F91E"
