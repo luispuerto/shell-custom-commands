@@ -20,10 +20,11 @@ function reset-sound () {
   sudo launchctl load $coreaudiod
 }
 
-# function fix-mail-app () {
+function fix-mail-app () {
 
-#   FILE="/Users/lpuerto/Library/Containers/com.apple.mail/Data/DataVaults"
-#   FILE+="/MailBundles/Library/Mail/Bundles/Properties.plist"
+  FILE="/Users/lpuerto/Library/Application\ Support/Mail/Plug-ins/Bundles"
+  FILE+="/Library/Mail/Bundles/"
+  FILE+="Properties.plist"
 
-#   rm -fr $FILE
-# }
+  rm -fr $FILE
+}
