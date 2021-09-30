@@ -22,7 +22,7 @@ function reset-sound () {
 
 function fix-mail-app () {
 
-  FILE="/Users/lpuerto/Library/Application\ Support/Mail/Plug-ins/Bundles"
+  FILE="/Users/lpuerto/Library/Application Support/Mail/Plug-ins/Bundles"
   FILE+="/Library/Mail/Bundles/"
   FILE+="Properties.plist"
 
