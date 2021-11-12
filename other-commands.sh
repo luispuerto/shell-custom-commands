@@ -26,5 +26,7 @@ function fix-mail-app () {
   FILE+="/Library/Mail/Bundles/"
   FILE+="Properties.plist"
 
+  pkill -x Mail
   rm -fr $FILE
+  open -a Mail 
 }
