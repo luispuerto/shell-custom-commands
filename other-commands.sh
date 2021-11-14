@@ -30,3 +30,7 @@ function fix-mail-app () {
   rm -fr $FILE
   open -a Mail 
 }
+
+function fix-share-services () {
+  pkill -KILL -x TelegramShare Messages\ Share\ Extension
+}

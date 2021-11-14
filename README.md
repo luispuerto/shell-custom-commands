@@ -17,6 +17,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
     - [Reset the bluetooth](#reset-the-bluetooth)
     - [Reset sound](#reset-sound)
     - [Fix mail app](#fix-mail-app)
+    - [Fix Share Services](#fix-share-services)
 
 <!-- /MarkdownTOC -->
 
@@ -81,7 +82,7 @@ This updates oh-my-zsh, brew packages, r packages, gems, App Mac Store Apps and 
 ```shell
 $ up-all
 ```
-### Link R to openBLAS 
+### Link R to openBLAS
 
 If you want to use openBLAS on your R install from the binary you need to link it manually using a symbolic link. This command do it for you.
 
@@ -99,7 +100,7 @@ Sometimes when the system updates mess up with the command line tools install an
 $ command-line-tools-reinstall
 ```
 
-## Other commands 
+## Other commands
 
 ### diff files with sublimemerge
 
@@ -133,3 +134,12 @@ The mail app sometimes it's a little slow opening. It seems that `/Users/lpuerto
 fix-mail-app
 ```
 
+### Fix Share Services
+
+The share services sometimes doesn't work as expected when you change the size of the monitor you are using. Like for example you are using the laptop screen and you change to an external monitor, or the other way around. 
+
+The command will force kill the `Messages Share Services` and the `TelegramShare`. 
+
+```shell
+fix-share-services
+```
