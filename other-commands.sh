@@ -34,3 +34,7 @@ function fix-mail-app () {
 function fix-share-services () {
   pkill -KILL -x TelegramShare Messages\ Share\ Extension
 }
+
+function fix-ios-sync () {
+  pkill -KILL -x AMPDevicesAgent
+}

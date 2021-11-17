@@ -18,6 +18,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
     - [Reset sound](#reset-sound)
     - [Fix mail app](#fix-mail-app)
     - [Fix Share Services](#fix-share-services)
+    - [Fix iOS sync](#fix-ios-sync)
 
 <!-- /MarkdownTOC -->
 
@@ -143,3 +144,12 @@ The command will force kill the `Messages Share Services` and the `TelegramShare
 ```shell
 fix-share-services
 ```
+
+### Fix iOS sync
+
+Sometime I can't reboot or turn off the computer because the iOS sync is in progress but jammed. The best thing to do is to kill the process that make the sync to happen `AMPDeviceAgent`. This function will kill it for you. 
+
+```shell
+fix-ios-sync
+``` 
+
