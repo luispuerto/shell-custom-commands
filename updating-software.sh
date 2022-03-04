@@ -49,7 +49,7 @@ function up-all () {
 # Link openBLAS to R binary
 function r-openblas () {
   ln -sf \
-    /usr/local/opt/openblas/lib/libopenblas.0.dylib \
+    /opt/homebrew/opt/openblas/lib/libopenblas.dylib \
     /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib 
 }
 
