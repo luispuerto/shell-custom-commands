@@ -48,9 +48,21 @@ function up-all () {
 
 # Link openBLAS to R binary
 function r-openblas () {
-  ln -sf \
-    /opt/homebrew/opt/openblas/lib/libopenblas.dylib \
-    /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib 
+
+  # Figuring out the kind of machine
+  UNAME_MACHINE="$(/usr/bin/uname -m)"
+  if [[ "${UNAME_MACHINE}" == "arm64" ]]
+  then
+    # On ARM macOS, library is on /opt/homebrew 
+    ln -sf \
+      /opt/homebrew/opt/openblas/lib/libopenblas.dylib \
+      /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib 
+  else
+    # On Intel macOS, library is on /usr/local
+    ln -sf \
+      /usr/local/opt/openblas/lib/libopenblas.dylib \
+      /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib 
+  fi
 }
 
 # Reinstall command line tools
