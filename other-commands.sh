@@ -22,12 +22,12 @@ function reset-sound () {
 
 function fix-mail-app () {
 
-  FILE="~/Library/Application Support/Mail/Plug-ins/Bundles"
+  FILE=${HOME}"/Library/Application Support/Mail/Plug-ins/Bundles"
   FILE+="/Library/Mail/Bundles/"
   FILE+="Properties.plist"
 
   pkill -x Mail
-  rm -fr $FILE
+  rm -f ${FILE}
   open -a Mail 
 }
 
