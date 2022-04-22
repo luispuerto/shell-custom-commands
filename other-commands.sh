@@ -38,3 +38,16 @@ function fix-share-services () {
 function fix-ios-sync () {
   pkill -KILL -x AMPDevicesAgent
 }
+
+
+function fix-gdrive-icon () {
+  ## Copy the icon to the Google Drive folder
+  sudo cp ~/Documents/Library/Big\ Sur\ Icons/Folders/Google\ Drive\ Folder.icns \
+  /Applications/Google\ Drive.app/Contents/Resources/drive_fs.icns
+  ## Kill Google Drive app
+  pkill -KILL -x Google\ Drive
+  ## Open Google Drive app
+  open -a Google\ Drive
+  ## Kill dock and finder
+  killall Dock Finder
+}

@@ -7,18 +7,19 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
 - [How to use install](#how-to-use-install)
 - [Dependencies](#dependencies)
 - [Update & Upgrade Commands](#update--upgrade-commands)
-    - [Update Homebrew](#update-homebrew)
-    - [Update R packages](#update-r-packages)
-    - [Update all](#update-all)
-    - [Link R to openBLAS](#link-r-to-openblas)
-    - [Reinstall Command Line Tools](#reinstall-command-line-tools)
+        - [Update Homebrew](#update-homebrew)
+        - [Update R packages](#update-r-packages)
+        - [Update all](#update-all)
+        - [Link R to openBLAS](#link-r-to-openblas)
+        - [Reinstall Command Line Tools](#reinstall-command-line-tools)
 - [Other commands](#other-commands)
-    - [diff files with sublimemerge](#diff-files-with-sublimemerge)
-    - [Reset the bluetooth](#reset-the-bluetooth)
-    - [Reset sound](#reset-sound)
-    - [Fix mail app](#fix-mail-app)
-    - [Fix Share Services](#fix-share-services)
-    - [Fix iOS sync](#fix-ios-sync)
+        - [diff files with sublimemerge](#diff-files-with-sublimemerge)
+        - [Reset the bluetooth](#reset-the-bluetooth)
+        - [Reset sound](#reset-sound)
+        - [Fix mail app](#fix-mail-app)
+        - [Fix Share Services](#fix-share-services)
+        - [Fix iOS sync](#fix-ios-sync)
+        - [Fix Google Drive Icon](#fix-google-drive-icon)
 
 <!-- /MarkdownTOC -->
 
@@ -152,4 +153,12 @@ Sometime I can't reboot or turn off the computer because the iOS sync is in prog
 ```shell
 fix-ios-sync
 ``` 
+
+### Fix Google Drive Icon
+
+This just fix the google drive icon folder when this is updated. 
+
+```bash
+fix-gdrive-icon
+```
 
