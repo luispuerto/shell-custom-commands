@@ -20,6 +20,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Fix Share Services](#fix-share-services)
         - [Fix iOS sync](#fix-ios-sync)
         - [Fix Google Drive Icon](#fix-google-drive-icon)
+        - [Add pcre2 to R](#add-pcre2-to-r)
 
 <!-- /MarkdownTOC -->
 
@@ -162,3 +163,10 @@ This just fix the google drive icon folder when this is updated.
 fix-gdrive-icon
 ```
 
+### Add pcre2 to R
+
+So we can build `rjava` from source
+
+```bash
+pcre2-libs-ln
+```
