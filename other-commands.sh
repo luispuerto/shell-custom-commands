@@ -51,3 +51,13 @@ function fix-gdrive-icon () {
   ## Kill dock and finder
   killall Dock Finder
 }
+
+
+function pcre2-libs-ln () {
+  # Make the necessary symbolic links
+  sudo ln -sfn /opt/homebrew/opt/pcre2/lib/libpcre2-8.dylib \
+               /opt/homebrew/opt/pcre2/lib/libpcre2-16.dylib \
+               /opt/homebrew/opt/pcre2/lib/libpcre2-32.dylib \
+               /opt/homebrew/opt/pcre2/lib/libpcre2-posix.dylib \
+   /opt/R/arm64/lib/
+}
