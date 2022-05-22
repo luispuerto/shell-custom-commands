@@ -32,7 +32,7 @@ function fix-mail-app () {
 }
 
 function fix-share-services () {
-  pkill -KILL -x TelegramShare Messages\ Share\ Extension
+  pkill -KILL -x TelegramShare Messages\ Share\ Extension ShareExtension
 }
 
 function fix-ios-sync () {
