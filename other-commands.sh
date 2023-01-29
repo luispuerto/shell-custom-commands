@@ -66,7 +66,8 @@ function pcre2-libs-ln () {
 
 
 pdfcompress (){
-  # This is coming from here: https://gist.github.com/ahmed-musallam/27de7d7c5ac68ecbd1ed65b6b48416f9
+  # This is coming from here: 
+  # https://gist.github.com/ahmed-musallam/27de7d7c5ac68ecbd1ed65b6b48416f9
   gs \
  -q -dNOPAUSE -dBATCH -dSAFER \
  -sDEVICE=pdfwrite \
@@ -83,4 +84,3 @@ pdfcompress (){
  -sOutputFile=${1%.*}.compressed.pdf \
  $1;
 }
-
