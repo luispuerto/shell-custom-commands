@@ -84,3 +84,9 @@ pdfcompress (){
  -sOutputFile=${1%.*}.compressed.pdf \
  $1;
 }
+
+resume-upload (){
+  # Upload my resume to Dropbox for publish on my site 
+  rclone copy ~/Documents/Professional/Job\ Hunting/Resume/Luis\ Puerto\ resume.pdf \
+  dropbox:Professional/Resume
+}

@@ -21,6 +21,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Fix iOS sync](#fix-ios-sync)
         - [Fix Google Drive Icon](#fix-google-drive-icon)
         - [Add pcre2 to R](#add-pcre2-to-r)
+        - [Upload resume](#upload-resume)
 
 <!-- /MarkdownTOC -->
 
@@ -169,4 +170,12 @@ So we can build `rjava` from source
 
 ```bash
 pcre2-libs-ln
+```
+
+### Upload resume
+
+So I upload my resume to Dropbox after I update it and I publish on my site. 
+
+```bash
+resume-upload
 ```
