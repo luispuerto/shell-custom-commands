@@ -42,8 +42,8 @@ function up-all () {
 	gem update 
 	# echo "\U1F4CC ${RED}==>${NC} updating macOS Apps in the App Mac Store \U1F5A5  \U1F91E"
 	# mas upgrade
-	echo "\U1F4CC ${RED}==>${NC} updating macOS System \U1F5A5  \U1F91E"
-	softwareupdate -i -a
+	# echo "\U1F4CC ${RED}==>${NC} updating macOS System \U1F5A5  \U1F91E"
+	# softwareupdate -i -a
 }
 
 # Link openBLAS to R binary
