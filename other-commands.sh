@@ -90,3 +90,15 @@ resume-upload (){
   rclone copy ~/Documents/Professional/Job\ Hunting/Resume/Luis\ Puerto\ resume.pdf \
   dropbox:Professional/Resume
 }
+
+function reset-desktop () {
+  # This is a function to reset the desktop after you change icons. 
+  # Close Mail and Things before you start. 
+  pkill -x Mail Things3 
+  # Killing Dock and Finder to the new icons load properly
+  killall Dock Finder
+  # Reopening Mail and Things
+  sleep 1 # you need to wait a little bit to reopen
+  open -a Mail
+  open -a Things3
+}
