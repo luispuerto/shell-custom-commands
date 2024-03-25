@@ -102,3 +102,8 @@ function reset-desktop () {
   open -a Mail
   open -a Things3
 }
+
+function reset-1pw (){
+  open -na 1Password\ 7
+  # This is a function to close and open again 1Password 7. 
+}

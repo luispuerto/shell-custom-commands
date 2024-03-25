@@ -23,6 +23,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Add pcre2 to R](#add-pcre2-to-r)
         - [Upload resume](#upload-resume)
         - [Reset desktop](#reset-desktop)
+        - [Reset 1Password 7](#reset-1password-7)
 
 <!-- /MarkdownTOC -->
 
@@ -187,5 +188,13 @@ This is a function to reset the desktop and closing and opening some apps.
 
 ```bash
 reset-desktop
+```
+
+### Reset 1Password 7
+
+This is a function to reset the 1Password 7 app.
+
+```bash
+reset-1pw
 ```
 
