@@ -24,6 +24,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Upload resume](#upload-resume)
         - [Reset desktop](#reset-desktop)
         - [Reset 1Password 7](#reset-1password-7)
+        - [Reset DEVONthink 3](#reset-devonthink-3)
 
 <!-- /MarkdownTOC -->
 
@@ -198,3 +199,10 @@ This is a function to reset the 1Password 7 app.
 reset-1pw
 ```
 
+### Reset DEVONthink 3
+
+This is a function to close and open again DEVONthink 3.
+
+```shell
+reset-dt
+```

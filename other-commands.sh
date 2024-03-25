@@ -94,7 +94,8 @@ resume-upload (){
 function reset-desktop () {
   # This is a function to reset the desktop after you change icons. 
   # Close Mail and Things before you start. 
-  pkill -x Mail Things3 
+  osascript -e 'quit app "Mail"'
+  osascript -e 'quit app "Things3"'
   # Killing Dock and Finder to the new icons load properly
   killall Dock Finder
   # Reopening Mail and Things
@@ -104,6 +105,15 @@ function reset-desktop () {
 }
 
 function reset-1pw (){
-  open -na 1Password\ 7
   # This is a function to close and open again 1Password 7. 
+  osascript -e 'quit app "1Password 7"'
+  open -a 1Password\ 7
 }
+
+function reset-dt (){
+  # This is a function to close and open again DEVONthink 3. 
+  osascript -e 'quit app "DEVONthink 3"'
+  open -a DEVONthink\ 3
+}
+
+
