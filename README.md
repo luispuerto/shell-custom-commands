@@ -33,15 +33,15 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
 Pretty easy. Just clone this repo: 
 
 ```shell
-$ git clone git@github.com:luispuerto/bash-custom-commands.git
-$ git clone https://github.com/luispuerto/bash-custom-commands.git # if you prefer http protocol
+git clone git@github.com:luispuerto/bash-custom-commands.git
+git clone https://github.com/luispuerto/bash-custom-commands.git # if you prefer http protocol
 ```
 
 Then in bash or zsh you have to source `updating-software.sh` in your shell config file. More info [here](https://medium.com/devnetwork/how-to-create-your-own-custom-terminal-commands-c5008782a78e) but basically: 
 
 ```shell
-$ open ~/.zshrc # for zsh
-$ open ~/.bash_profile #for bash
+open ~/.zshrc # for zsh
+open ~/.bash_profile #for bash
 ```
 
 And paste something like: 
@@ -66,7 +66,7 @@ Open and close the terminal —or whatever you are using— and that's it.
 This command will perform a general update of all the Homebrew packages. 
 
 ```shell
-$ up-brew
+up-brew
 ```
 
 It executes a brew update, upgrade and a cleanup. 
@@ -76,7 +76,7 @@ It executes a brew update, upgrade and a cleanup.
 This command updates R packages
 
 ```shell
-$ up-r-pacakges
+up-r-pacakges
 ```
 
 It upgrades all R packages in your machine. 
@@ -86,14 +86,14 @@ It upgrades all R packages in your machine.
 This updates oh-my-zsh, brew packages, r packages, gems, App Mac Store Apps and macOS system. 
 
 ```shell
-$ up-all
+up-all
 ```
 ### Link R to openBLAS
 
 If you want to use openBLAS on your R install from the binary you need to link it manually using a symbolic link. This command do it for you.
 
 ```shell 
-$ r-openblas
+r-openblas
 ```
 
 You have to run it every time you updates or reinstall R. 
@@ -103,7 +103,7 @@ You have to run it every time you updates or reinstall R.
 Sometimes when the system updates mess up with the command line tools install and they have to be reinstalled, this command is for that. 
 
 ```shell
-$ command-line-tools-reinstall
+command-line-tools-reinstall
 ```
 
 ## Other commands
@@ -111,7 +111,7 @@ $ command-line-tools-reinstall
 ### diff files with sublimemerge
 
 ```shell
-$ subldiff <file1> <file2>
+subldiff <file1> <file2>
 ```
 
 This is a command that uses [SublimeMerge3](https://www.sublimerge.com/sm3/) as a `diff tool`. You should have [Sublime Text](https://www.sublimetext.com) and this package installed to make it work properly. 
@@ -162,7 +162,7 @@ fix-ios-sync
 
 This just fix the google drive icon folder when this is updated. 
 
-```bash
+```shell
 fix-gdrive-icon
 ```
 
@@ -170,7 +170,7 @@ fix-gdrive-icon
 
 So we can build `rjava` from source
 
-```bash
+```shell
 pcre2-libs-ln
 ```
 
@@ -178,7 +178,7 @@ pcre2-libs-ln
 
 So I upload my resume to Dropbox after I update it and I publish on my site. 
 
-```bash
+```shell
 resume-upload
 ```
 
@@ -186,7 +186,7 @@ resume-upload
 
 This is a function to reset the desktop and closing and opening some apps. 
 
-```bash
+```shell
 reset-desktop
 ```
 
@@ -194,7 +194,7 @@ reset-desktop
 
 This is a function to reset the 1Password 7 app.
 
-```bash
+```shell
 reset-1pw
 ```
 
