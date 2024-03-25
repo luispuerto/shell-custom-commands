@@ -22,6 +22,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Fix Google Drive Icon](#fix-google-drive-icon)
         - [Add pcre2 to R](#add-pcre2-to-r)
         - [Upload resume](#upload-resume)
+        - [Reset desktop](#reset-desktop)
 
 <!-- /MarkdownTOC -->
 
@@ -179,3 +180,12 @@ So I upload my resume to Dropbox after I update it and I publish on my site.
 ```bash
 resume-upload
 ```
+
+### Reset desktop
+
+This is a function to reset the desktop and closing and opening some apps. 
+
+```bash
+reset-desktop
+```
+
