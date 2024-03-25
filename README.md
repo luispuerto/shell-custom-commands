@@ -1,4 +1,4 @@
-# Bash Custom Commands :desktop_computer:
+# Shell Custom Commands :desktop_computer:
 
 This is a small repo with some bash custom commands I use. Mainly to update software in a easier way. 
 
