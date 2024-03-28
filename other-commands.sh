@@ -106,7 +106,8 @@ function reset-desktop () {
 
 function reset-1pw (){
   # This is a function to close and open again 1Password 7. 
-  osascript -e 'quit app "1Password 7"'
+  pkill -x 1Password\ 7
+  osascript -e 'quit app "1Password Extension Helper"'
   open -a 1Password\ 7
 }
 
