@@ -19,6 +19,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Fix mail app](#fix-mail-app)
         - [Fix Share Services](#fix-share-services)
         - [Fix iOS sync](#fix-ios-sync)
+        - [Fix notification center](#fix-notification-center)
         - [Fix Google Drive Icon](#fix-google-drive-icon)
         - [Add pcre2 to R](#add-pcre2-to-r)
         - [Upload resume](#upload-resume)
@@ -158,6 +159,14 @@ Sometime I can't reboot or turn off the computer because the iOS sync is in prog
 ```shell
 fix-ios-sync
 ``` 
+
+### Fix notification center
+
+This is just restarting the notification center
+
+```shel
+fix-notifications
+```
 
 ### Fix Google Drive Icon
 
