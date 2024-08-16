@@ -39,6 +39,11 @@ function fix-ios-sync () {
   pkill -KILL -x AMPDevicesAgent
 }
 
+function fix-notifications (){
+  # This is to reset the notification center 
+  pkill -KILL -x NotificationCenter
+}
+
 
 function fix-gdrive-icon () {
   ## Copy the icon to the Google Drive folder
@@ -118,3 +123,7 @@ function reset-dt (){
 }
 
 
+function dnsflush (){
+  # This is function to clean the DNS 
+  sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}

@@ -26,6 +26,7 @@ This is a small repo with some bash custom commands I use. Mainly to update soft
         - [Reset desktop](#reset-desktop)
         - [Reset 1Password 7](#reset-1password-7)
         - [Reset DEVONthink 3](#reset-devonthink-3)
+        - [Flux DNS](#flux-dns)
 
 <!-- /MarkdownTOC -->
 
@@ -214,4 +215,12 @@ This is a function to close and open again DEVONthink 3.
 
 ```shell
 reset-dt
+```
+
+### Flux DNS
+
+I think it's benefitial when you are connecting to VPN to flush DNSs if you have connection problems. 
+
+```shell
+dnsflush
 ```
