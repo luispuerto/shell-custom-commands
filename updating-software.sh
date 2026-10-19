@@ -21,30 +21,30 @@ function up-brew () {
 # Update R Packages
 function up-r-packages () {
 	echo "\U1F4CC ${RED}==>${NC} Checking for new R packages \U1F4E6  \U1F91E"
-	if [ ! "$(Rscript --vanilla -e "old.packages(repos = 'cloud.r-project.org')")" = NULL ]; then
+	if [ ! "$(Rscript --vanilla -e "old.packages(lib.loc = .libPaths()[1], repos = 'cloud.r-project.org')")" = NULL ]; then
 		echo "\U1F4CC ${RED}==>${NC} The following R packages are outdated \U1F4DC"
-	Rscript --vanilla -e "as.data.frame(old.packages(repos = 'cloud.r-project.org'))[,c(3,5,4)]"
+	Rscript --vanilla -e "as.data.frame(old.packages(lib.loc = .libPaths()[1], repos = 'cloud.r-project.org'))[,c(3,5,4)]"
 		echo "\U1F4CC ${RED}==>${NC} Upgrading / building... \U1F3D7"
 		
 		# First try to update with binary packages
 		echo "\U1F4CC ${RED}==>${NC} Attempting binary package updates..."
 		Rscript --vanilla -e "
 		tryCatch({
-			update.packages(ask = FALSE, repos = 'https://cloud.r-project.org', checkBuild = TRUE, type = 'binary')
+			update.packages(lib.loc = .libPaths()[1], ask = FALSE, repos = 'https://cloud.r-project.org', checkBuild = TRUE, type = 'binary')
 		}, error = function(e) {
 			cat('Binary update failed, will try source compilation\n')
 		})"
 		
 		# Check if there are still outdated packages and build from source
-		if [ ! "$(Rscript --vanilla -e "old.packages(repos = 'cloud.r-project.org')")" = NULL ]; then
+		if [ ! "$(Rscript --vanilla -e "old.packages(lib.loc = .libPaths()[1], repos = 'cloud.r-project.org')")" = NULL ]; then
 			echo "\U1F4CC ${RED}==>${NC} Some packages failed binary update, building from source... \U2699\UFE0F"
 			Rscript --vanilla -e "
-			old_pkgs <- old.packages(repos = 'https://cloud.r-project.org')
+			old_pkgs <- old.packages(lib.loc = .libPaths()[1], repos = 'https://cloud.r-project.org')
 			if (!is.null(old_pkgs)) {
 				for (pkg in rownames(old_pkgs)) {
 					cat('Building', pkg, 'from source...\n')
 					tryCatch({
-						install.packages(pkg, repos = 'https://cloud.r-project.org', type = 'source')
+						install.packages(pkg, lib = .libPaths()[1], repos = 'https://cloud.r-project.org', type = 'source')
 					}, error = function(e) {
 						cat('Failed to build', pkg, 'from source:', e\$message, '\n')
 					})
